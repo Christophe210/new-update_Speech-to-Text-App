@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: linear-gradient(120deg, green 0%, green 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#output {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+.container {
+    background-color: white;
+    text-align: center;
+    padding: 20px;            
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    width: 400px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#startBtn {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #4CAF50;
+}
+
+#startBt:hover {
+    background-color: #4CAF50;
+}
+
+#repeatagainButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#repeatagainButton:hover {
+    background-color: black;
+}
+
+#nextlevelButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#nextlevelButton:hover {
+    background-color: black;
+}
+
+#inputText {
+    width: 80%;
+    resize: none;
+    overflow: hidden;
+    height: auto;
+}
+
+#inputText {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+#convertBtn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+
+
+}
+
+#convertBtn:hover {
+    background-color: green;
+}
+
+#checkButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#checkButton:hover {
+    background-color: black;
+}
+
+#frBtn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+
+
+}
+
+#frBtn:hover {
+    background-color: green;
+}
+
+#kinyarwandaBtn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+
+
+}
+
+#kinyarwandaBtn:hover {
+    background-color: green;
+}

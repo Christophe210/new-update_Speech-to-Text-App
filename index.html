@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech to Text App</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="image/tsinda media logo.jpeg" type="image/x-icon">
+</head>
+<body>
+    <br><br>
+
+    <div class="main">
+        <div class="container">
+            <h1>Speech to Text App</h1>
+
+            <!-- Add this div to display the current level -->
+            <strong style="color: green;"> <div id="level">Level 1</div> </strong>
+
+            <!-- Use inputText for the content to listen -->
+            <textarea id="inputText" readonly>I am Christophe. I come from Rwanda. I like to learn new things. Today, I am learning English.</textarea><br>
+            <button id="convertBtn">Convert to English</button><br>
+            <button id="frBtn">French</button>
+            <button id="kinyarwandaBtn">Kinyarwanda</button>
+            
+            <!-- Update the button to start recording -->
+            <div class="button">
+                <button id="startBtn"><img src="https://cdn-icons-png.flaticon.com/512/25/25682.png" alt="" width="50" height="50"></button>
+                <small>Tap to repeat the content.</small>
+            </div>
+
+            <div id="output"></div>
+
+            <div id="convert_text"></div>
+
+             <!-- Add a button for repeating the current level -->
+             <button id="repeatagainButton">Previous level</button>
+
+             <button id="checkButton">Check</button>
+
+
+             <!-- Add a button for moving to the next level -->
+             <button id="nextlevelButton">Next level</button>
+             <br>
+             <p>Speech to Text App | Design & Development by <a href="https://christophe210.github.io/Tsinda-Media_App/" target="_blank">Tsinda Media Ltd</a></p>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+
+    <script>
+        // ... (your existing JavaScript code) ...
+    
+        const convertBtn = document.getElementById('convertBtn');
+        const frBtn = document.getElementById('frBtn');
+        const kinyarwandaBtn = document.getElementById('kinyarwandaBtn');
+    
+        
+ const apiKey = 'YOUR_GOOGLE_TRANSLATE_API_KEY';
+    const apiUrl = 'https://translation.googleapis.com/language/translate/v2';
+
+    frBtn.addEventListener('click', () => setLanguage('fr-FR'));
+    kinyarwandaBtn.addEventListener('click', () => setLanguage('rw-RW'));
+
+    function setLanguage(languageCode) {
+        const textToTranslate = levels[currentLevel].toLowerCase();
+
+        if (textToTranslate.trim() !== '') {
+            translateText(textToTranslate, languageCode)
+                .then(translatedText => {
+                    const utterance = new SpeechSynthesisUtterance();
+                    utterance.lang = languageCode;
+                    utterance.text = translatedText;
+
+                    utterance.onerror = (event) => {
+                        console.error('Speech synthesis error:', event.error);
+                        alert('Error in speech synthesis. Please try again.');
+                    };
+                    synth.speak(utterance);
+                })
+                .catch(error => {
+                    console.error('Translation error:', error);
+                    alert('Error in translation. Please try again.');
+                });
+        } else {
+            alert('Please enter text to convert.');
+        }
+    }
+
+    async function translateText(text, targetLanguage) {
+        const response = await fetch(`${apiUrl}?key=${apiKey}&q=${encodeURIComponent(text)}&target=${targetLanguage}`);
+        const data = await response.json();
+
+        if (data.data && data.data.translations && data.data.translations[0] && data.data.translations[0].translatedText) {
+            return data.data.translations[0].translatedText;
+        } else {
+            throw new Error('Translation failed');
+        }
+    }
+
+        
+    </script>
+
+    <script src="./script.js"></script>
+</body>
+</html>
